@@ -244,7 +244,7 @@
 </head>
 
 <body>
-  <div id="breadcrumb">Home</div>
+  <div id="breadcrumb"></div>
   <div id="course" class="container"></div>
   <script>
     const courseListContainer = document.getElementById('course');
@@ -254,7 +254,7 @@
     let coursesData = [];
 
     async function displayCourses() {
-       const response = await fetch('./sir.json');
+      const response = await fetch('./sir.json');
       coursesData = await response.json();
       currentPath = [];
       updateBreadcrumb();
@@ -342,11 +342,10 @@
 
         const thumbnail = document.createElement('img');
         if (content.contentType === 1) {
-          thumbnail.src = 'https://web.classplusapp.com/static/media/folderlarge.150d81e4.svg';
-        } else if (content.format === 'pdf') {
-          thumbnail.src = 'https://web.classplusapp.com/static/media/SVGPdf.056402f7.svg';
+          thumbnail.src = 'https://web.classplusapp.com/static/media/folderlarge.150d81e4.svg'; 
+          thumbnail.src = 'https://web.classplusapp.com/static/media/SVGPdf.056402f7.svg'; 
         } else {
-          thumbnail.src = content.thumbnailUrl || content.url;
+          thumbnail.src = content.thumbnailUrl || content.url; 
         }
         thumbnail.alt = subContent.name;
         thumbnail.classList.add('content-thumbnail');

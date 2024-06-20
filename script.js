@@ -20,8 +20,6 @@ const backButtonContact = document.getElementById('back-button-contact');
 const backButtonOtp = document.getElementById('back-button-otp');
 const orgCodeV = document.getElementById('orgCode')
 const orglogoimg = document.getElementById('org-logo-img')
-import supabase from "../config/supabaseClient"
-
 let UserData = [];
 getUserDetails()
 async function getUserDetails() {
@@ -49,7 +47,7 @@ async function getUserDetails() {
     }
   }, false);
   if (data) {
-    console.log(supabase); ()  window.location.href = '/study.html';
+    window.location.href = '/study.html';
   }
 }
 const showFlashMessage = (m, t = 'info') => {
@@ -276,8 +274,6 @@ async function verifyOtp() {
     otpMessage.textContent = 'Invalid OTP';
   }
 }
-
-
 function switchLoginMethod() {
   if (contactMethod === 'mobile') {
     contactLabel.innerText = 'Please enter your Email Address';
