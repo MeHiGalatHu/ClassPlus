@@ -1,0 +1,196 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    cursor: default;
+}
+
+.container {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    overflow: hidden;
+    position: relative;
+}
+
+input,
+button {
+    margin: 10px;
+    width: calc(100% - 40px);
+    padding: 12px;
+    box-sizing: border-box;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    outline: none;
+    font-weight: 700;
+    height: 48px;
+    color: #333;
+}
+
+button {
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+label, span {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+    color: #333;
+    margin: 0 0 8px;
+    margin-bottom: 5px;
+}
+
+button:disabled {
+    background-color: #ddd;
+}
+
+.alternate-option,
+.contact-info,
+.message {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.alternate-option p,
+#edit-contact-otp,
+.edit-contact p,
+#back-button p {
+    color: #007bff;
+    cursor: pointer;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.message {
+    color: red;
+}
+
+.contact-info p {
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.flash-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.flash-message {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.alert {
+    background-color: #dc3545;
+}
+
+.warning {
+    background-color: #ffc107;
+    color: #333;
+}
+
+.success {
+    background-color: #28a745;
+}
+
+.info {
+    background-color: #17a2b8;
+}
+
+.progress-bar {
+    width: 0;
+    height: 5px;
+    background-color: #fff;
+    border-radius: 2px;
+    margin-top: 5px;
+    transition: width 0.5s ease;
+}
+
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin-top: 10px;
+    gap: 10px;
+    justify-content: center;
+}
+
+.image-grid img {
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.image-grid img:hover {
+    transform: scale(1.1);
+}
+
+.main {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 37px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    color: #343a40;
+    margin: 0 0 10px;
+}
+
+.org-logo {
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.org-logo img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+.welcome-message {
+    font-size: 20px;
+    color: #333;
+    margin: 10px 0;
+    font-size: 24px;
+    font-weight: lighter;
+    font-family: Gilroy, sans-serif !important;
+}
+
+img {
+    object-fit: contain;
+    width: 25px;
+    margin-left: 1rem;
+}

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="container">
+    <div class="org-logo">
+      <img id="org-logo-img"
+        src="https://media.discordapp.net/attachments/936658249791471676/1249160171523936278/6152372508301573172_120.png?ex=66664a91&is=6664f911&hm=cae1d5172ac3d4c3ab91df3f0682f40a771d4d9fafea7075bddb0d007722a2f2&=&format=webp&quality=lossless&width=350&height=350"
+        alt="Organization Logo">
+      <h2 class="welcome-message">Welcome to</h2>
+      <h1 id="org-name">Astra</h1>
+    </div>
+    <div id="org-code-form" class="form-group">
+      <label for="orgCode">Please enter the org code</label>
+      <input type="text" id="orgCode" placeholder="Enter Organization Code">
+      <button id="verify-org-btn">Verify</button>
+      <div id="org-message" class="message"></div>
+      <div class="image-grid">
+        <img
+          src="https://play-lh.googleusercontent.com/7X9-j9lUSiUw_jRJMsUqil_CiBhEnryjhJZQL7-IuUs6Tzfn70IeeKggUMDOdT-HOVo=w240-h480-rw"
+          alt="Dinesh Sir" data-org-code="jsdrv">
+        <img
+          src="https://play-lh.googleusercontent.com/DRUOiljHkQWxecEWfS2ydgiZ-4V9jv-xyDUh1pblw93TAv-UQygfW-e8V2UYUfVSoPU=w240-h480-rw"
+          alt="NIE" data-org-code="xptuz">
+        <img
+          src="https://play-lh.googleusercontent.com/4L6yJ8lHpCWVqw_3QY4CjcdHykzMXz8Tjx7sTWhfhc67hsBzCyulajdejTpRlS02CDQ=w240-h480-rw"
+          alt="PGMN" data-org-code="fowui">
+        <img
+          src="https://play-lh.googleusercontent.com/DipKKb4ULMvr3-gfUalaqnpv2ygMi69zzNnV-BbCxy6HX3gKctyv43dnOixzJzo7Aw=w240-h480-rw"
+          alt="AAC" data-org-code="efpni">
+        <img
+          src="https://play-lh.googleusercontent.com/N89AriyNHbuYNWzlLTdhusx42hZKFgeGCkfuQjaAsDfzSGMgh0-GpgdlBxpdMQHx3c4=w240-h480-rw"
+          alt="ASC" data-org-code="aaswf">
+        <img
+          src="https://play-lh.googleusercontent.com/yoAhpb8xGth-v4SjTDay7gjxDTmabYM2__fH6yClAZvjy2_zma5469f54Wq-g9H_YA=w240-h480-rw"
+          alt="DUBEJEE" data-org-code="ymatrv">
+      </div>
+    </div>
+    <div id="contact-form" class="form-group" style="display: none;">
+      <label id="contact-label" for="contact">Please enter your mobile number</label>
+      <input autocomplete="false" aria-placeholder="Enter Mobile No." pattern="[0-9]*" placeholder="Enter Mobile No."
+        type="tel" required="" id="contact" maxlength="10" minlength="10" inputmode="numeric">
+
+      <button id="send-otp-btn">Send OTP</button>
+      <div id="contact-message" class="message"></div>
+      <div id="back-button-contact" style="display: none;">
+        <p>« Back to ORG</p>
+      </div>
+    </div>
+    <div id="otp-form" class="form-group" style="display: none;">
+      <div class="contact-info">
+        <span id="contact-info-text"></span>
+        <img id="edit-contact-otp" src="https://www.pw.live/study/assets/auth/edit.png" alt="" srcset="">
+      </div>
+      <label for="otp">Enter the code sent to your phone</label>
+      <input type="number" id="otp" placeholder="Enter OTP">
+      <button id="verify-otp-btn">Verify OTP</button>
+      <p id="retry-otp" style="color: #007bff; cursor: pointer; text-align: center;">Resend OTP</p>
+      <div id="otp-message" class="message"></div>
+      <div id="back-button-otp" style="display: none;">
+        <p>« Back to Contact</p>
+      </div>
+    </div>
+    <div id="alternate-option" class="alternate-option" style="display: none;">
+      <p id="switch-login">Login with Email</p>
+    </div>
+  </div>
+  <div id="flash-container" class="flash-container"></div>
+  <script src="script.js"></script>
+</body>
+
+</html>

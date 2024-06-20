@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Course List</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+      color: #333;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      width: 90%;
+    }
+
+    #breadcrumb {
+      font-size: 16px;
+      font-weight: bold;
+      color: #555;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+    }
+
+    .course-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .course {
+      display: flex;
+      align-items: center;
+      border: 1px solid #ddd;
+      margin: 10px;
+      padding: 15px;
+      background-color: #ffffff;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .course:hover {
+      background-color: #fafafa;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      transform: translateY(-5px);
+    }
+
+    .course-thumbnail {
+      width: 150px;
+      height: auto;
+      border-radius: 5px;
+      margin-right: 15px;
+      margin-bottom: 15px;
+    }
+
+    .course-details {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .course-details h3 {
+      margin: 0;
+      font-size: 18px;
+      color: #007BFF;
+      margin-bottom: 5px;
+    }
+
+    .course-details p {
+      margin: 5px 0;
+      color: #666;
+    }
+
+    .course-details .info {
+      margin-top: auto;
+    }
+
+    .back-button {
+      display: inline-block;
+      margin-bottom: 20px;
+      padding: 10px 20px;
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .back-button:hover {
+      background-color: #0056b3;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        width: 95%;
+        padding: 15px;
+      }
+
+      .course {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .course-details {
+        align-items: center;
+        text-align: center;
+      }
+
+      .course-details h3 {
+        font-size: 20px;
+      }
+
+      .course-details p {
+        font-size: 14px;
+      }
+    }
+
+    .container::before {
+      content: '';
+      display: block;
+      width: 100%;
+      height: 5px;
+      background: linear-gradient(to right, #007bff, #00d4ff);
+      border-radius: 5px 5px 0 0;
+      margin-bottom: 20px;
+    }
+
+    .course-thumbnail::after,
+    .content-thumbnail::after {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 50px;
+      height: 50px;
+      background: linear-gradient(145deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0));
+      border-radius: 5px;
+    }
+
+    .course-details h3,
+    .content-details h3 {
+      font-size: 18px;
+      color: #333;
+      margin-bottom: 10px;
+    }
+
+    .course-details p,
+    .content-details p {
+      font-size: 14px;
+      color: #777;
+    }
+  .info {
+  margin-top: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+}
+
+.info p {
+  margin: 5px 0;
+  color: #666;
+}
+
+.info strong {
+  margin-right: 5px;
+  color: #333;
+}
+
+.course-details .info span {
+  color: #777; 
+}
+
+.course-details .info del {
+  color: #999; 
+  text-decoration: line-through; 
+}
+
+.course-details .info .free {
+  color: #28a745;
+}
+.content, .sub-content {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ddd;
+  padding: 15px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+  margin: 10px;
+}
+
+.content:hover, .sub-content:hover {
+  background-color: #fafafa;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  transform: translateY(-5px);
+}
+
+.content-thumbnail {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 5px;
+  margin-right: 15px;
+}
+
+.content-details {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.content-details h3 {
+  margin: 0;
+  font-size: 18px;
+  color: #007BFF;
+}
+
+.content-details p {
+  margin: 5px 0;
+  color: #666;
+  display: flex;
+  flex-wrap: wrap;
+}
+</style>
+</head>
+
+<body>
+  <div id="breadcrumb">Home</div>
+  <div id="course" class="container"></div>
+  <script>
+    const courseListContainer = document.getElementById('course');
+    const breadcrumbContainer = document.getElementById('breadcrumb');
+    let currentPath = [];
+
+    let coursesData = [];
+
+    async function displayCourses() {
+       const response = await fetch('./sir.json');
+      coursesData = await response.json();
+      currentPath = [];
+      updateBreadcrumb();
+      courseListContainer.innerHTML = '';
+      coursesData.forEach(course => {
+        const courseElement = document.createElement('div');
+        courseElement.classList.add('course');
+
+        const thumbnail = document.createElement('img');
+        thumbnail.src = course.imageUrl;
+        thumbnail.alt = course.name;
+        thumbnail.classList.add('course-thumbnail');
+
+        const courseDetails = document.createElement('div');
+        courseDetails.classList.add('course-details');
+        courseDetails.innerHTML = `
+                    <h3>${course.name}</h3>
+                    <div class="info">
+                      <p><strong>Subscribers:</strong> ${course.totalSubscriberCount} | <strong>Updated:</strong> ${new Date(course.updatedAt).toLocaleDateString()} | <strong>Price:</strong> <del>₹${course.finalPrice}</del> <span class="free">Free</span></p>
+                    </div>
+                `;
+
+        courseElement.appendChild(thumbnail);
+        courseElement.appendChild(courseDetails);
+
+        courseElement.addEventListener('click', () => {
+          currentPath.push(course.name);
+          displayCourseDetails(course);
+        });
+
+        courseListContainer.appendChild(courseElement);
+      });
+    }
+
+    function displayCourseDetails(course) {
+      updateBreadcrumb();
+      courseListContainer.innerHTML = '';
+      courseListContainer.innerHTML = `<button class="back-button" onclick="navigateBack()">Back</button>`;
+      course.content.forEach(content => {
+        const contentElement = document.createElement('div');
+        contentElement.classList.add('content');
+
+        const thumbnail = document.createElement('img');
+        if (content.contentType === 1) {
+          thumbnail.src = 'https://web.classplusapp.com/static/media/folderlarge.150d81e4.svg';
+        } else if (content.format === 'pdf') {
+          thumbnail.src = 'https://web.classplusapp.com/static/media/SVGPdf.056402f7.svg';
+        } else {
+          thumbnail.src = content.thumbnailUrl || content.url;
+        }
+        thumbnail.alt = content.name;
+        thumbnail.classList.add('content-thumbnail');
+
+        const contentDetails = document.createElement('div');
+        contentDetails.classList.add('content-details');
+        contentDetails.innerHTML = `
+      <h3>${content.name}</h3>
+      <p>${content.description || ''}</p>
+      ${content.resources ? `<p>${formatResources(content.resources)}</p>` : ''}
+    `;
+
+        contentElement.appendChild(thumbnail);
+        contentElement.appendChild(contentDetails);
+
+        if (content.contentType === 1) {
+          contentElement.addEventListener('click', () => {
+            currentPath.push(content.name);
+            displaySubContents(content, course);
+          });
+        } else if (content.contentType === 3) {
+          contentElement.addEventListener('click', () => {
+            window.open(content.url, '_blank');
+          });
+        }
+        courseListContainer.appendChild(contentElement);
+      });
+    }
+
+    function displaySubContents(content, parentCourse) {
+      updateBreadcrumb();
+      courseListContainer.innerHTML = `<button class="back-button" onclick="navigateBack()">Back</button>`;
+      content.subContents.forEach(subContent => {
+        const subContentElement = document.createElement('div');
+        subContentElement.classList.add('sub-content');
+
+        const thumbnail = document.createElement('img');
+        if (content.contentType === 1) {
+          thumbnail.src = 'https://web.classplusapp.com/static/media/folderlarge.150d81e4.svg';
+        } else if (content.format === 'pdf') {
+          thumbnail.src = 'https://web.classplusapp.com/static/media/SVGPdf.056402f7.svg';
+        } else {
+          thumbnail.src = content.thumbnailUrl || content.url;
+        }
+        thumbnail.alt = subContent.name;
+        thumbnail.classList.add('content-thumbnail');
+
+        const subContentDetails = document.createElement('div');
+        subContentDetails.classList.add('content-details');
+        subContentDetails.innerHTML = `
+      <h3>${subContent.name}</h3>
+      <p>${subContent.description || ''}</p>
+      ${subContent.resources ? `<p>${formatResources(subContent.resources)}</p>` : ''}
+    `;
+
+        subContentElement.appendChild(thumbnail);
+        subContentElement.appendChild(subContentDetails);
+
+        if (subContent.contentType === 1) {
+          subContentElement.addEventListener('click', () => {
+            currentPath.push(subContent.name);
+            displaySubContents(subContent, parentCourse);
+          });
+        } else if (subContent.url) {
+          subContentElement.addEventListener('click', () => {
+            window.open(subContent.url, '_blank');
+          });
+        }
+        courseListContainer.appendChild(subContentElement);
+      });
+    }
+
+    function formatResources(resources) {
+      return `Videos: ${resources.videos} | Files: ${resources.files} | Tests: ${resources.tests}`;
+    }
+
+    function updateBreadcrumb() {
+      const breadcrumb = currentPath.map((part, index) => {
+        if (index === 0 || index === currentPath.length - 1) {
+          return part;
+        }
+        return '..»';
+      }).join(' > ');
+
+      breadcrumbContainer.innerHTML = breadcrumb;
+    }
+
+    function navigateBack() {
+      currentPath.pop();
+      updateBreadcrumb();
+      if (currentPath.length === 0) {
+        displayCourses();
+      } else {
+        const currentCourse = coursesData.find(course => course.name === currentPath[0]);
+        if (currentPath.length === 1) {
+          displayCourseDetails(currentCourse);
+        } else {
+          const parentContent = findParentContent(currentCourse.content, currentPath[currentPath.length - 1]);
+          displaySubContents(parentContent, currentCourse);
+        }
+      }
+    }
+
+    function findParentContent(contents, name) {
+      for (const content of contents) {
+        if (content.name === name) {
+          return content;
+        }
+        if (content.subContents) {
+          const result = findParentContent(content.subContents, name);
+          if (result) {
+            return result;
+          }
+        }
+      }
+      return null;
+    }
+    displayCourses();
+  </script>
+</body>
+</html>
